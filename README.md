@@ -25,7 +25,6 @@ This project is a full-stack application for viewing, annotating, and processing
 .
 ├── readeasy-next/      # Next.js frontend
 ├── readeasy-backend/   # FastAPI backend
-├── readeasy/           # (Legacy/other code, not primary)
 ```
 
 ---
