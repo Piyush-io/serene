@@ -1,0 +1,316 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.625rem;
+    --background: #f5f2ea;
+    --foreground: #121212;
+    --card: #faf7f2;
+    --card-foreground: #121212;
+    --popover: #faf7f2;
+    --popover-foreground: #121212;
+    --primary: #111111;
+    --primary-foreground: #ffffff;
+    --secondary: #111111;
+    --secondary-foreground: #ffffff;
+    --muted: #e8e0d0;
+    --muted-foreground: #666666;
+    --accent: #e8e0d0;
+    --accent-foreground: #211f1c;
+    --destructive: #8b0000;
+    --border: #d7d0c0;
+    --input: #d7d0c0;
+    --ring: #a8a194;
+    --chart-1: #8b0000;
+    --chart-2: #2c4770;
+    --chart-3: #4a4036;
+    --chart-4: #6f6c64;
+    --chart-5: #9c8e66;
+    --sidebar: #faf7f2;
+    --sidebar-foreground: #121212;
+    --sidebar-primary: #211f1c;
+    --sidebar-primary-foreground: #faf7f2;
+    --sidebar-accent: #e8e0d0;
+    --sidebar-accent-foreground: #211f1c;
+    --sidebar-border: #d7d0c0;
+    --sidebar-ring: #a8a194;
+    --code-background: #f0ece3; /* Slightly darker than card for light mode */
+  }
+
+  .dark {
+    --background: #1a1814;
+    --foreground: #f5f2ea;
+    --card: #211f1c;
+    --card-foreground: #f5f2ea;
+    --popover: #211f1c;
+    --popover-foreground: #f5f2ea;
+    --primary: #111111;
+    --primary-foreground: #ffffff;
+    --secondary: #111111;
+    --secondary-foreground: #ffffff;
+    --muted: #36332c;
+    --muted-foreground: #a8a194;
+    --accent: #36332c;
+    --accent-foreground: #f5f2ea;
+    --destructive: #a83240;
+    --border: rgba(245, 242, 234, 0.1);
+    --input: rgba(245, 242, 234, 0.15);
+    --ring: #a8a194;
+    --chart-1: #9c8e66;
+    --chart-2: #6f6c64;
+    --chart-3: #a8a194;
+    --chart-4: #8b7d63;
+    --chart-5: #b5a684;
+    --sidebar: #211f1c;
+    --sidebar-foreground: #f5f2ea;
+    --sidebar-primary: #9c8e66;
+    --sidebar-primary-foreground: #f5f2ea;
+    --sidebar-accent: #36332c;
+    --sidebar-accent-foreground: #f5f2ea;
+    --sidebar-border: rgba(245, 242, 234, 0.1);
+    --sidebar-ring: #a8a194;
+    --code-background: #2a2722; /* Slightly darker than card for dark mode */
+  }
+
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground overflow-hidden;
+    height: 100vh;
+    width: 100vw;
+  }
+  
+  html {
+    overflow: hidden;
+  }
+  
+  #document-content {
+    overflow-y: auto;
+    height: 100%;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .fade-in {
+    @apply opacity-0 transition-opacity duration-300;
+  }
+
+  .fade-in.loaded {
+    @apply opacity-100;
+  }
+
+  /* Button styles */
+  .btn-primary {
+    @apply bg-black text-white font-medium py-3 px-8 rounded-lg 
+           transition-all duration-200 shadow-md hover:shadow-lg hover:bg-black/90;
+  }
+
+  .btn-secondary {
+    @apply bg-black text-white font-medium py-3 px-8
+           rounded-lg transition-all duration-200 shadow-md hover:shadow-lg hover:bg-black/90;
+  }
+
+  /* Highlight effect */
+  .highlight {
+    @apply relative inline-block after:content-[''] after:absolute after:bottom-0 after:left-0 
+           after:w-full after:h-[30%] after:bg-secondary after:-z-10 after:rounded;
+  }
+
+  /* Markdown styles */
+  .prose {
+    @apply text-base leading-7;
+
+    img {
+      @apply max-w-full h-auto block my-4 rounded-md border border-border shadow-sm bg-card object-contain;
+    }
+
+    img[src^="data:image"] {
+      @apply max-h-[500px] object-contain mx-auto;
+    }
+
+    h1 {
+      @apply text-3xl mt-6 mb-2 font-bold;
+    }
+
+    h2 {
+      @apply text-2xl mt-5 mb-2 font-semibold;
+    }
+
+    h3 {
+      @apply text-xl mt-4 mb-2 font-semibold;
+    }
+
+    p {
+      @apply my-3;
+    }
+
+    ul {
+      @apply list-disc pl-6 my-3;
+    }
+
+    ol {
+      @apply list-decimal pl-6 my-3;
+    }
+
+    blockquote {
+      @apply italic border-l-4 border-primary pl-4 my-4 bg-secondary/20 p-2 rounded;
+    }
+
+    code {
+      @apply font-mono bg-muted/60 dark:bg-muted/40 px-1.5 py-0.5 rounded text-sm;
+    }
+
+    pre {
+      @apply bg-[var(--code-background)] rounded-md border border-border overflow-x-auto my-4 p-4 relative;
+
+      code {
+        @apply bg-transparent p-0 rounded-none text-sm font-mono text-foreground/90;
+      }
+    }
+  }
+
+  /* Add styles for the copy button */
+  .copy-code-button {
+    @apply absolute top-2 right-2 z-10 p-1.5 bg-muted/50 dark:bg-muted/30 text-muted-foreground rounded opacity-0 group-hover/pre:opacity-100 transition-opacity duration-200 hover:bg-muted/70 dark:hover:bg-muted/50 focus:outline-none focus:ring-2 focus:ring-ring/50;
+  }
+
+  .copy-code-button svg {
+    @apply w-4 h-4;
+  }
+
+  .copy-code-button.copied {
+    @apply text-green-600 dark:text-green-500;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Add transition-width utility */
+  .transition-width {
+    transition-property: width;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+  }
+
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+}
+
+/* Hero Component Styles */
+.magic-gradient {
+  background: linear-gradient(90deg, #111, #555, #111);
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 8s linear infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.1); opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) scale(1); opacity: 0.1; }
+  50% { transform: translateY(-20px) scale(2); opacity: 0.3; }
+}
+
+/* Custom scrollbar styles */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.08);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.15);
+}
+
+/* Hide scrollbar in document viewer */
+#document-content::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+#document-content {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+/* Document viewer specific styles */
+#document-content {
+  overflow-y: auto;
+  height: 100%;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+.markdown-content {
+  pointer-events: auto !important;
+}
+
+/* Remove extra space at beginning of markdown content */
+.markdown-content > *:first-child {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.markdown-wrapper {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .magic-gradient {
+    animation: none;
+  }
+}
+
+/* Allow highlight.js theme to show through for code blocks */
+.prose pre code.hljs {
+  background: inherit !important;
+  color: inherit !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+}
+
+.prose pre.hljs, .prose pre code.hljs {
+  background: #f6f8fa !important; /* fallback for github theme */
+  color: #24292e !important;
+  border: 1px solid #e1e4e8 !important;
+  border-radius: 6px !important;
+  padding: 1.25em !important;
+  overflow-x: auto;
+}
+
+.prose pre code.hljs span {
+  /* Let highlight.js theme color the tokens */
+  color: inherit;
+}

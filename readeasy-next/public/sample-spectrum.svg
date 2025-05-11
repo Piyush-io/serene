@@ -1,0 +1,53 @@
+<svg width="800" height="300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="300" fill="#f9f9f9"/>
+  <rect x="10" y="10" width="780" height="280" rx="8" fill="#ffffff" stroke="#e0e0e0" stroke-width="2"/>
+  
+  <!-- Title -->
+  <text x="400" y="40" font-family="Arial" font-size="20" font-weight="bold" fill="#333333" text-anchor="middle">Electromagnetic Spectrum</text>
+  
+  <!-- Gradient spectrum bar -->
+  <defs>
+    <linearGradient id="spectrumGradient" x1="0%" y1="0%" x2="100%" y1="0%">
+      <stop offset="0%" style="stop-color:#990000" />
+      <stop offset="16.6%" style="stop-color:#ff3b30" />
+      <stop offset="33.3%" style="stop-color:#ff9500" />
+      <stop offset="50%" style="stop-color:#34c759" />
+      <stop offset="66.6%" style="stop-color:#007aff" />
+      <stop offset="83.3%" style="stop-color:#5856d6" />
+      <stop offset="100%" style="stop-color:#af52de" />
+    </linearGradient>
+  </defs>
+  
+  <rect x="100" y="90" width="600" height="60" rx="4" fill="url(#spectrumGradient)"/>
+  
+  <!-- Wavelength markers -->
+  <line x1="100" y1="160" x2="100" y2="170" stroke="#666666" stroke-width="2"/>
+  <line x1="200" y1="160" x2="200" y2="170" stroke="#666666" stroke-width="2"/>
+  <line x1="300" y1="160" x2="300" y2="170" stroke="#666666" stroke-width="2"/>
+  <line x1="400" y1="160" x2="400" y2="170" stroke="#666666" stroke-width="2"/>
+  <line x1="500" y1="160" x2="500" y2="170" stroke="#666666" stroke-width="2"/>
+  <line x1="600" y1="160" x2="600" y2="170" stroke="#666666" stroke-width="2"/>
+  <line x1="700" y1="160" x2="700" y2="170" stroke="#666666" stroke-width="2"/>
+  
+  <!-- Labels -->
+  <text x="100" y="190" font-family="Arial" font-size="12" fill="#666666" text-anchor="middle">Radio Waves</text>
+  <text x="200" y="190" font-family="Arial" font-size="12" fill="#666666" text-anchor="middle">Microwaves</text>
+  <text x="300" y="190" font-family="Arial" font-size="12" fill="#666666" text-anchor="middle">Infrared</text>
+  <text x="400" y="190" font-family="Arial" font-size="12" fill="#666666" text-anchor="middle">Visible Light</text>
+  <text x="500" y="190" font-family="Arial" font-size="12" fill="#666666" text-anchor="middle">Ultraviolet</text>
+  <text x="600" y="190" font-family="Arial" font-size="12" fill="#666666" text-anchor="middle">X-rays</text>
+  <text x="700" y="190" font-family="Arial" font-size="12" fill="#666666" text-anchor="middle">Gamma Rays</text>
+  
+  <!-- Wavelength scale -->
+  <text x="100" y="220" font-family="Arial" font-size="10" fill="#999999" text-anchor="middle">10³ m</text>
+  <text x="200" y="220" font-family="Arial" font-size="10" fill="#999999" text-anchor="middle">10⁻² m</text>
+  <text x="300" y="220" font-family="Arial" font-size="10" fill="#999999" text-anchor="middle">10⁻⁵ m</text>
+  <text x="400" y="220" font-family="Arial" font-size="10" fill="#999999" text-anchor="middle">10⁻⁶ m</text>
+  <text x="500" y="220" font-family="Arial" font-size="10" fill="#999999" text-anchor="middle">10⁻⁸ m</text>
+  <text x="600" y="220" font-family="Arial" font-size="10" fill="#999999" text-anchor="middle">10⁻¹⁰ m</text>
+  <text x="700" y="220" font-family="Arial" font-size="10" fill="#999999" text-anchor="middle">< 10⁻¹² m</text>
+  
+  <!-- Energy scale -->
+  <text x="400" y="250" font-family="Arial" font-size="14" fill="#333333" text-anchor="middle">Increasing Energy →</text>
+  <text x="400" y="270" font-family="Arial" font-size="14" fill="#333333" text-anchor="middle">← Increasing Wavelength</text>
+</svg> 
